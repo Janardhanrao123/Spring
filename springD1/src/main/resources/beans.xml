@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config />
+
+<context:property-placeholder location="classpath:apllication.properties" />
+    
+
+<bean id="Student" class="springintro.Student"> 
+  <!--   <property name="id" value="${Student.id}" />
+    <property name="name" value="${Student.Name}" /> -->
+    <property name="age" value="23" />
+    <property name="address" ref="adr1" />
+    
+    <property name="hobbies">
+        <list>
+            <value>Cricket</value>
+            <value>Kho-Kho</value>
+            <value>badminton</value>
+            <value>Kho-Kho</value>
+            <value>Kho-Kho</value>
+        </list>
+    </property>
+    <property name="marksmap">
+        <map>
+            <entry key="Telugu" value="89" />
+            <entry key="English" value="88" />
+            <entry key="Hindi" value="89" />
+            <entry key="Maths" value="100" />
+            <entry key="Science" value="99" />
+        </map>
+    </property>    
+    
+    <property name="addressMap">
+        <map>
+            <entry key="Home Address" value-ref="adr1" />
+            <entry key="Office Address" value-ref="adr2" />
+        </map>
+    </property>
+</bean>
+
+
+
+<bean id="adr1" class="springintro.Address">
+    <property name="street" value="Podalpalli Village" />
+</bean>
+
+<bean id="adr2" class="springintro.Address">
+    <property name="street" value="Raja Ram Patil Nagar" />
+</bean>
+
+
+
+</beans>
